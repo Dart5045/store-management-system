@@ -1,0 +1,21 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/sms?currentSchema=stock&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+        username: postgres
+        password: password
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+    sql:
+        init:
+            platform: postgres
+            mode: always
+stock:
+    property: Stock Profile Dev Updated

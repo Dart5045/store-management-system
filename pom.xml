@@ -2,40 +2,93 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
 	<groupId>com.mylearning</groupId>
 	<artifactId>sms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>sms</name>
 	<description>Demo project for Spring Boot</description>
+	<modules>
+		<module>product-microservice</module>
+		<module>stock-microservice</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
+		<project.version>1.0-SNAPSHOT</project.version>
+		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+		<mockito.version>4.8.1</mockito.version>
+		<spring.boot.dependencies.version>3.1.1</spring.boot.dependencies.version>
 	</properties>
+	<developers>
+		<developer>
+			<id>Dart5045</id>
+			<name>Bladimir Gonzales Miranda</name>
+		</developer>
+	</developers>
+	<scm>
+		<url>https://github.com/Dart5045/store-management-system</url>
+		<connection>scm:git:git://github.com/Dart5045/store-management-system.git</connection>
+	</scm>
+	<dependencyManagement>
+		<!--Spring boot dependencies-->
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.dependencies.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+
+			<!--Testing dependencies-->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+			<version>1.18.28</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-logging</artifactId>
+			<version>3.1.1</version>
 		</dependency>
 	</dependencies>
-
 	<build>
+		<pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.maven.plugin.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
