@@ -1,7 +1,9 @@
 # Implementación de Microservicios con Spring Boot
 
 ## Spring Cloud Eureka Server
-El concepto de Spring Cloud Eureka Server y sus capacidades de Discovery es una de las características principales de Spring Cloud a la hora de gestionar el registro y búsqueda de MicroServicios. Cuando tenemos varios MicroServicios es muy común querer invocar de unos a otros.
+El objetivo de Eureka Server es localizar y registrar servicios con los que se desea interactuar, además nos ayuda con el balanceo de carga y la tolerancia a fallos. Para configurar Eureka Server deben existir al menos dos tipos de aplicaciones, una aplicación que funcione como servidor y otra como cliente.
+Contenido Ocultar
+Cada servicio debe comunicarse con el Servidor Eureka para decirle que está disponible para ser usado. Eureka Server guardará su información y su estado. A esta comunicación entre el microservicio y Eureka se le llama heartbeats y ocurre cada 30 segundos. Si  3 heartbeats fallan Eureka Server lo elimina de la lista.
 
 ## Spring Cloud Gateway
 Spring Cloud Gateway también conocido como puerta de enlace o Edge. Es un servidor de enrutamiento dinámico. En otras palabras, nos permite tener un punto de acceso centralizado a nuestros Microservicios. Además, podemos extender su funcionalidad agregando filtros o predicados, entre otras cosas.
