@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/category")
+@RequestMapping("api/v1/categories")
 @RefreshScope
 public class CategoryController {
     @Value("${app.testProp}")
@@ -20,7 +20,6 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.OK)
     public String getTestProp()
     {
-        System.out.println("blass");
         return testProp;
     }
 }
