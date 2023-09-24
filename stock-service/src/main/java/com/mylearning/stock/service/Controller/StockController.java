@@ -20,10 +20,8 @@ public class StockController {
 
     public boolean stockAvailable(
             @PathVariable String code){
-        Optional<StockEntity>  stockEntity = StockRepository.findByCode(code);
+        Optional<StockEntity>  stockEntity = stockRepository.findByCode(code);
         stockEntity.orElseThrow(() -> new RuntimeException("Product not found"));
         return stockEntity.get().getQuantity()>0;
-
     }
-
 }
