@@ -3,6 +3,7 @@
 ## Spring Cloud Eureka Server
 El objetivo de Eureka Server es localizar y registrar servicios con los que se desea interactuar, además nos ayuda con el balanceo de carga y la tolerancia a fallos. Para configurar Eureka Server deben existir al menos dos tipos de aplicaciones, una aplicación que funcione como servidor y otra como cliente.
 Contenido Ocultar
+
 Cada servicio debe comunicarse con el Servidor Eureka para decirle que está disponible para ser usado. Eureka Server guardará su información y su estado. A esta comunicación entre el microservicio y Eureka se le llama heartbeats y ocurre cada 30 segundos. Si  3 heartbeats fallan Eureka Server lo elimina de la lista.
 
 ## Spring Cloud Gateway
